@@ -1,0 +1,71 @@
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Gestión de Empresas</span>
+    <span class="example-spacer"></span>
+    <button mat-fab extended color="primary" (click)="openDialog()">
+      <mat-icon>add</mat-icon>
+      Agregar
+    </button>
+  </mat-toolbar>
+ 
+  <div class="container">
+    <div style="margin-top: 25px;">
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Por campo" #input>
+      </mat-form-field>
+      
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+      
+          <ng-container  matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+            <td mat-cell *matCellDef="let row" [ngClass]="(row.id %2)== 0 ? 'colverde' : 'colceleste' "> {{row.id}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+            <td mat-cell *matCellDef="let row" [ngClass]="(row.id %2)== 0 ? 'colverde' : 'colceleste' "> {{row.estado}}% </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="nombre_comercial">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+            <td mat-cell *matCellDef="let row" [ngClass]="(row.id %2)== 0 ? 'colverde' : 'colceleste' "> {{row.nombre_comercial}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="correo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </th>
+            <td mat-cell *matCellDef="let row" [ngClass]="(row.id %2)== 0 ? 'colverde' : 'colceleste' "> {{row.correo}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="nit">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> NIT </th>
+            <td mat-cell *matCellDef="let row" [ngClass]="(row.id %2)== 0 ? 'colverde' : 'colceleste' "> {{row.nit}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="opciones">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Opciones </th>
+            <td mat-cell *matCellDef="let row" [ngClass]="(row.id %2)== 0 ? 'colverde' : 'colceleste' ">
+              <button mat-icon-button (click)="editEmpresa(row)" color="primary">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button  (click)="deleteEmpresa(row.id)" color="warn">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 25]" aria-label="Select page of users"></mat-paginator>
+      </div>
+    </div>
+  </div>

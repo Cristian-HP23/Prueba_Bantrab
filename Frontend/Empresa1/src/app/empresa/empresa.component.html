@@ -1,0 +1,72 @@
+<mat-grid-list cols="12" rowHeight="50px">
+    <mat-grid-tile colspan="3" rowspan="1">
+        <h1 mat-dialog-title [align]="'start'">{{titulo1}}</h1>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="5" rowspan="1">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3" rowspan="3">
+        <div mat-dialog-action [align]="'end'">
+            <button mat-raised-button color="primary">Close</button>
+            <button style="margin-left: 10px;" mat-raised-button color="warn" (click)="addEmpresa()">{{tipobtn}}</button>
+            </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3" rowspan="1">
+        <h4 style="text-align: left;">{{titulo2}}</h4>
+    </mat-grid-tile>
+    
+</mat-grid-list>
+
+<div mat-dialog-comtent>
+    <form [formGroup]="empresaForm">
+        <mat-grid-list cols="12" rowHeight="100px">
+            <mat-grid-tile colspan="5">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre Comercial</mat-label>
+                    <input formControlName="nombre_comercial"  matInput >
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1">
+            </mat-grid-tile>
+            <mat-grid-tile colspan="5">
+                <mat-form-field appearance="outline">
+                    <mat-label>Razon Social</mat-label>
+                    <input  formControlName="razon_social" matInput >
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="5">
+                <mat-form-field appearance="outline">
+                    <mat-label>Teléfono</mat-label>
+                    <input formControlName="telefono" matInput >
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1">
+            </mat-grid-tile>
+            <mat-grid-tile colspan="5">
+                <mat-form-field appearance="outline">
+                    <mat-label>Correo Electronico</mat-label>
+                    <input  readonly={{editar}} formControlName="correo" matInput >
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="5">
+                <mat-form-field appearance="outline">
+                    <mat-label>NIT</mat-label>
+                    <input formControlName="nit" matInput >
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1">
+            </mat-grid-tile>
+            <mat-grid-tile colspan="5">
+                <mat-form-field appearance="outline">
+                    <mat-label>Estado</mat-label>
+                    <input formControlName="estado" matInput >
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="10">
+                <mat-form-field appearance="outline">
+                    <mat-label>Direccion</mat-label>
+                    <input formControlName="direccion" matInput >
+                  </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+    </form>
+</div>
