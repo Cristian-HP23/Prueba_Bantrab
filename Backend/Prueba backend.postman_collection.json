@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "68ae57f3-817f-43c6-ade9-7804fc969cc7",
+		"name": "Prueba backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener todas las imagenes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:49475/api/v1/imagenes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49475",
+					"path": [
+						"api",
+						"v1",
+						"imagenes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subir imagen",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"type": "file",
+							"src": "/C:/Users/Nitro/Pictures/img_btn_tradiciones.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:49475/api/v1/imagenes?nombre=tradiciones1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "49475",
+					"path": [
+						"api",
+						"v1",
+						"imagenes"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "tradiciones1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
